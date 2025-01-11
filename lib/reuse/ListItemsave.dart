@@ -1,18 +1,29 @@
+import '../SetUp2.dart';
+
 import 'package:flutter/material.dart';
 //todo make the buttons links add the to the correct firebase fil
-class ListItem{
+class ListItemsave{
   String logo;
   String example;
   String name;
 
-  ListItem({this.logo = '', this.example = '', this.name = ''});
+  ListItemsave({this.logo = '', this.example = '', this.name = ''});
 
   @override
-  Widget cardTemplate() {
+  Widget cardTemplate(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Handle the click event here
-        print('Card clicked');
+       onTap: () {
+         print(name);
+         Navigator.push(
+           context,
+           MaterialPageRoute(
+             builder: (context) => SetUp2(
+               logo: logo,
+               example: example,
+               name: name,
+             ),
+           ),
+         );
       },
       child: Card(
         margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
